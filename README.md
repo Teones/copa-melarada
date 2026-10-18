@@ -1,16 +1,46 @@
-# React + Vite
+# Melarada
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bolão da Copa do Mundo 2026 para família e amigos. Cada participante dá palpites nos jogos, responde perguntas bônus e acompanha o ranking. O organizador lança resultados e gerencia o grupo.
 
-Currently, two official plugins are available:
+<p>
+  <img src="docs/login.png" alt="Login" width="220" />
+  <img src="docs/tela-principal.png" alt="Tela principal" width="220" />
+  <img src="docs/palpites.png" alt="Palpites" width="220" />
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Demo:** https://melarada-a67cf.web.app
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Cadastro com nome, PIN de 4 dígitos e código do grupo
+- Palpites por partida
+- Perguntas bônus
+- Ranking com tendência de subida e descida
+- Painel de organizador: jogos, resultados, gabarito e membros
+- Página de regras e de perfil
 
-## Expanding the ESLint configuration
+## Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19 + Vite
+- Firebase: Firestore (dados), Auth anônimo e Hosting (deploy)
+
+## Rodando localmente
+
+```bash
+npm install
+npm run dev
+```
+
+O app usa um projeto Firebase próprio. Para rodar com o seu, crie um projeto com Firestore e Auth anônimo habilitados e troque a configuração em `src/services/firebase.js`.
+
+## Deploy
+
+```bash
+npm run build
+firebase deploy
+```
+
+## Decisões
+
+- O primeiro usuário cadastrado vira organizador.
+- Como o app é fechado (um grupo só), o login é por PIN simples, sem e-mail.
